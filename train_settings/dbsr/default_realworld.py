@@ -52,7 +52,7 @@ def run(settings):
     burstsr_val = datasets.BurstSRDataset(split='val')
 
     # Train sampler and loader
-    dataset_val = sampler.IndexedBurst([burstsr_val], burst_size=settings.burst_sz, processing=data_processing_val)
+    dataset_val = sampler.IndexedBurst(burstsr_val, burst_size=settings.burst_sz, processing=data_processing_val)
     loader_val = DataLoader('val', dataset_val, training=False, num_workers=settings.num_workers,
                             stack_dim=0, batch_size=settings.batch_size)
 
